@@ -1,5 +1,5 @@
 import React from 'react';
-import { SidebarContainer, SidebarLink, StyledImage } from './StyledComponents';
+import { SidebarContainer, SidebarLink, StyledImage } from '../ui/StyledComponents';
 import almaImage from '../../assets/images/alma.png';
 
 

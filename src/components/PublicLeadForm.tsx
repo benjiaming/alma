@@ -5,7 +5,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 
 import backgroundImage from '../assets/images/background.png';
 import understandOptionsIcon from '../assets/icons/understand-options.png';
-import { Container, FormWrapper, SubmitButton, BackgroundImageWrapper, ThankYouDialog, StyledH1, StyledP, Icon } from './PublicLeadForm/StyledComponents';
+import { Container, FormWrapper, SubmitButton, BackgroundImageWrapper, ThankYouDialog, StyledH1, StyledP, Icon } from './ui/StyledComponents';
 import { FormSections } from './PublicLeadForm/FormSections';
 
 interface ErrorType {
@@ -90,6 +90,7 @@ const PublicLeadForm = () => {
             setErrors(validationErrors);
             return;
         }
+        console.log("Form data:", formData);
         setErrors({});
 
         setSubmissionStatus('Submitting...');

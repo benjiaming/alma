@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import leadsData from '../assets/leads.json'; //TODO: Replace with actual API call
 
-import { Container, Content, GradientBackground } from './InternalLeadManagement/StyledComponents';
+import { SmallContainer, Content, GradientBackground } from './ui/StyledComponents';
 import SearchBar from './InternalLeadManagement/SearchBar';
 import LeadsTable from './InternalLeadManagement/LeadsTable';
 import NavigationPanel from './InternalLeadManagement/NavigationPanel';
+import Login from './InternalLeadManagement/Login';
 
 
 const InternalLeadManagement = () => {
@@ -25,6 +26,7 @@ const InternalLeadManagement = () => {
     const [error, setError] = useState('');
     const [search, setSearch] = useState('');
     const [filterCriteria, setFilterCriteria] = useState('status');
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
         const fetchLeads = async () => {
@@ -95,8 +97,13 @@ const InternalLeadManagement = () => {
         },
     ];
 
+
+    if (!isAuthenticated) {
+        return <Login onLogin={() => setIsAuthenticated(true)} />;
+    }
+
     return (
-        <Container>
+        <SmallContainer>
             <GradientBackground />
             <NavigationPanel />
             <Content>
@@ -114,8 +121,9 @@ const InternalLeadManagement = () => {
                     error={error}
                 />
             </Content>
-        </Container>
+        </SmallContainer>
     );
 };
+
 
 export default InternalLeadManagement;

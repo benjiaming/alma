@@ -1,7 +1,7 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { LoaderContainer, StyledTable } from './StyledComponents';
+import { LoaderContainer, StyledTable } from '../ui/StyledComponents';
 
 
 interface Lead {

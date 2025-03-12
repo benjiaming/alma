@@ -13,7 +13,7 @@ import {
     CloseButton,
     StyledH1,
     Icon
-} from './StyledComponents';
+} from '../ui/StyledComponents';
 
 import diceIcon from 'assets/icons/dice.png';
 import heartIcon from 'assets/icons/heart.png';
@@ -38,6 +38,8 @@ interface FormSectionsProps {
     countryOptions: any;
 }
 
+// TODO: In real-world project we would use Formik or react-hook-form for form handling
+// and yup for validation
 export const FormSections: React.FC<FormSectionsProps> = ({
     formData,
     errors,

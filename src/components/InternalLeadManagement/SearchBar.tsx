@@ -1,6 +1,6 @@
 import React from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Dropdown, SearchContainer, SearchIcon, SearchInput } from './StyledComponents';
+import { Dropdown, SearchContainer, SearchIcon, SearchInput } from '../ui/StyledComponents';
 
 
 interface SearchBarProps {
