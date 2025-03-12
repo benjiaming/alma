@@ -83,6 +83,7 @@ const InternalLeadManagement = () => {
                     <option value="ReachedOut">Reached Out</option>
                 </select>
             ),
+            selector: (row: Lead) => row.status,
             sortable: true,
         },
         {

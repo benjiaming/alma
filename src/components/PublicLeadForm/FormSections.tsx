@@ -76,7 +76,8 @@ export const FormSections: React.FC<FormSectionsProps> = ({
             {errors.countryOfCitizenship && <ErrorMessage id="countryOfCitizenshipError">{errors.countryOfCitizenship.message}</ErrorMessage>}
         </div>
         <div>
-            <StyledInput type="url" id="linkedInProfile" name="linkedInProfile" value={formData.linkedInProfile} onChange={handleChange} placeholder="LinkedIn / Personal Website URL" />
+            <StyledInput type="url" id="linkedInProfile" name="linkedInProfile" value={formData.linkedInProfile} onChange={handleChange} placeholder="LinkedIn / Personal Website URL" required />
+            {errors.linkedInProfile && <ErrorMessage id="linkedInProfileError">{errors.linkedInProfile.message}</ErrorMessage>}
         </div>
         <div>
             {isUploading ? (
@@ -92,6 +93,7 @@ export const FormSections: React.FC<FormSectionsProps> = ({
                 </ResumeUploadButton>
             )}
             <HiddenInput type="file" id="resume" name="resume" onChange={handleChange} />
+            {errors.resume && <div><ErrorMessage id="resumeError">{errors.resume.message}</ErrorMessage></div>}
         </div>
         <div>
             <Icon src={diceIcon} />
@@ -117,7 +119,8 @@ export const FormSections: React.FC<FormSectionsProps> = ({
         <div>
             <Icon src={heartIcon} />
             <StyledH1>How can we help you?</StyledH1>
-            <StyledTextarea id="additionalInfo" name="additionalInfo" value={formData.additionalInfo} onChange={handleChange} placeholder={CURRENT_STATUS} height={100} />
+            <StyledTextarea id="additionalInfo" name="additionalInfo" value={formData.additionalInfo} onChange={handleChange} placeholder={CURRENT_STATUS} height={100} required />
+            {errors.additionalInfo && <ErrorMessage id="additionalInfoError">{errors.additionalInfo.message}</ErrorMessage>}
         </div>
     </>
 );

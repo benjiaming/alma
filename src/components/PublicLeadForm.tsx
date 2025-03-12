@@ -16,6 +16,7 @@ interface ErrorType {
     visasOfInterest?: { message: string, type: string };
     resume?: { message: string, type: string };
     countryOfCitizenship?: { message: string, type: string };
+    additionalInfo?: { message: string, type: string };
 }
 
 const PublicLeadForm = () => {
@@ -27,7 +28,7 @@ const PublicLeadForm = () => {
         visasOfInterest: [],
         resume: null,
         additionalInfo: '',
-        countryOfCitizenship: ''
+        countryOfCitizenship: '',
     });
 
     const [errors, setErrors] = useState<ErrorType>({});
@@ -75,22 +76,30 @@ const PublicLeadForm = () => {
 
     const validateForm = (): ErrorType => {
         const newErrors: ErrorType = {};
+        const MIN_ADDITIONAL_INFO_LENGTH = 10;
         if (!formData.firstName) newErrors.firstName = { message: 'First Name is required', type: 'required' };
         if (!formData.lastName) newErrors.lastName = { message: 'Last Name is required', type: 'required' };
         if (!formData.email) newErrors.email = { message: 'Email is required', type: 'required' };
         if (formData.visasOfInterest.length === 0) newErrors.visasOfInterest = { message: 'At least one Visa of Interest is required', type: 'required' };
         if (!formData.countryOfCitizenship) newErrors.countryOfCitizenship = { message: 'Country of Citizenship is required', type: 'required' };
+        if (!formData.resume) newErrors.resume = { message: 'Resume is required', type: 'required' };
+        if (!formData.linkedInProfile) newErrors.linkedInProfile = { message: 'LinkedIn / Personal Website URL is required', type: 'required' };
+        if (!formData.linkedInProfile.match(/^(https?:\/\/)?([\w\d-]+\.)*[\w\d-]+\.\w{2,}(\/.*)?$/)) newErrors.linkedInProfile = { message: 'Invalid URL', type: 'invalid' };
+        if (formData.additionalInfo.length < MIN_ADDITIONAL_INFO_LENGTH) newErrors.additionalInfo = { message: `Additional Info must be more than ${MIN_ADDITIONAL_INFO_LENGTH} characters`, type: 'invalid' };
+
         return newErrors;
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const validationErrors = validateForm();
+        // TODO: validate file size, file type, etc.
         if (Object.keys(validationErrors).length > 0) {
+            console.log({ validationErrors });
             setErrors(validationErrors);
             return;
         }
-        console.log("Form data:", formData);
+        console.log({formData});
         setErrors({});
 
         setSubmissionStatus('Submitting...');
