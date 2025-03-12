@@ -18,13 +18,6 @@ interface ErrorType {
     countryOfCitizenship?: { message: string, type: string };
 }
 
-const CURRENT_STATUS = `
-What is your current status and when does it expire?
-What is your past immigration history? 
-Are you looking for long term permanent residency or short-term employment visa or both?
-Are there any timeline considerations?
-`;
-
 const PublicLeadForm = () => {
     const [formData, setFormData] = useState({
         firstName: '',
@@ -48,17 +41,22 @@ const PublicLeadForm = () => {
         if (type === 'file') {
             setIsUploading(true);
             setTimeout(() => { // Simulate file upload delay
-                setFormData({ ...formData, [name]: files[0] });
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    [name]: files[0]
+                }));
                 setUploadedFileName(files[0].name);
                 setIsUploading(false);
             }, 2000);
         } else if (type === 'checkbox') {
-            const newVisasOfInterest = checked
-                ? [...formData.visasOfInterest, value]
-                : formData.visasOfInterest.filter((visa) => visa !== value);
-            setFormData({ ...formData, [name]: newVisasOfInterest });
+            setFormData((prevFormData) => {
+                const newVisasOfInterest = checked
+                    ? [...prevFormData.visasOfInterest, value]
+                    : prevFormData.visasOfInterest.filter((visa) => visa !== value);
+                return { ...prevFormData, [name]: newVisasOfInterest };
+            });
         } else {
-            setFormData({ ...formData, [name]: value });
+            setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
         }
     };
 

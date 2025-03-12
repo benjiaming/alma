@@ -1,6 +1,9 @@
 import React from 'react';
-import PublicLeadForm from '../components/PublicLeadForm';
 
+import dynamic from 'next/dynamic'
+ 
+const PublicLeadForm = dynamic(() => import('../components/PublicLeadForm'), { ssr: false })
+ 
 const Home = () => {
     return (
         <div>
