@@ -1,0 +1,147 @@
+1.1.1 Alma LegalTech Frontend Assessment Project *
+
+easy
+
+1440 min
+
+Functional and Technical Requirements: Lead Management Frontend Application
+
+
+Overview
+Develop a Next.js frontend application to support creating, retrieving, and updating leads. The application will include a public lead submission form and an internal lead management interface, with authentication and state transitions.
+
+
+
+Functional Requirements
+
+
+1. Public Lead Form
+A publicly accessible form where prospects can submit their information. The form must include the following required fields:
+
+First Name
+
+Last Name
+
+Email
+
+LinkedIn Profile
+
+Visas of Interest (multi-select)
+
+Resume/CV Upload (file upload)
+
+Additional Information (long text input)
+
+
+
+Behavior:
+
+Validate inputs to ensure required fields are filled correctly.
+
+Display a confirmation message upon successful submission.
+
+Ensure the form submission closely matches the provided mock-ups.
+
+
+
+
+
+2. Internal Lead Management UI
+
+
+A secure, authenticated internal UI that allows viewing and managing submitted leads.
+
+
+
+Display a list of leads with all submitted information.
+
+Each lead starts with a status of PENDING.
+
+Internal users can manually transition the lead’s status from PENDING to REACHED_OUT.
+
+A button must be available to update the lead’s state.
+
+UI design should closely match the provided mock-ups.
+
+
+
+
+
+Technical Requirements
+
+
+1. Core Technology Stack
+Frontend Framework: Next.js
+
+Styling: CSS or a CSS-in-JS library (e.g., styled-components)
+
+
+
+2. API & Backend
+Mock API endpoints if necessary.
+
+(Bonus) Implement API routes using Next.js API.
+
+
+
+3. Authentication & Security
+Implement a mock authentication mechanism to protect the internal leads list UI.
+
+
+
+4. Form & File Handling
+Implement form validation to ensure all required fields are correctly filled.
+
+Support file upload for the resume/CV.
+
+
+
+5. User Experience & Accessibility
+Ensure the submission UI matches the provided mock-ups.
+
+Implement form validation feedback (e.g., display error messages for incorrect inputs).
+
+Ensure responsiveness across different screen sizes.
+
+
+
+
+
+Submission Guidelines
+
+
+Code Repository
+
+Submit your solution to a public GitHub repository.
+
+Documentation
+
+Include a setup guide explaining how to run the application locally.
+
+Provide a design document outlining design choices and architecture.
+
+Any additional documentation that enhances understanding.
+
+
+
+Bonus Points
+
+
+Additional implementations that will be considered for extra credit:
+
+
+
+API Implementation: Use Next.js API routes instead of mock endpoints.
+
+Schema-Driven UI: Utilize JsonForms for a configuration-driven lead form.
+
+State Management: Implement a state management library (e.g., Redux) to manage leads.
+
+Testing: Write unit tests for key components and functionalities.
+
+Responsiveness: Ensure the application is fully responsive on all device sizes.
+
+Type Safety: Use TypeScript to enforce type safety.
+
+System Design Documentation: Provide an overview of system architecture and component interactions.
+
