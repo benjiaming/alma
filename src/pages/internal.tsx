@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic'
  
-const InternalLeadManagement = dynamic(() => import('../components/InternalLeadManagement'), { ssr: true })
+const InternalLeadManagement = dynamic(() => import('../components/InternalLeadManagement'), { ssr: false })
 
 
 const InternalPage = () => {
