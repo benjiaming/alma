@@ -1,4 +1,4 @@
-# Objective
+# Alma LegalTech Frontend
 
 1. Collect lead information from users: personal details, visa, and a resume.
 2. Provide an admin UI for creating, retrieving, and updating leads.
